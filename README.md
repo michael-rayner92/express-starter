@@ -2,6 +2,7 @@
 > Creating a feature rich express starter in parallel with exploring more advanced concepts
 
 **Current Focus:** Environment Configuration
+
 **Next Focus:** Setting up Typescript flow  
 
 ## Technologies

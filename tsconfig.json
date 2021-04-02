@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "ES2017",
     "lib": ["ES2017", "ESNext.AsyncIterable"],
-    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "typeRoots": ["./node_modules/@types", "src/@types"],
     "pretty": true,
     "noEmit": false,
     "allowJs": true,

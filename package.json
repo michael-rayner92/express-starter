@@ -10,6 +10,9 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
+    "lint": "eslint \"src/**/*.{js,json,ts}\"",
+    "lint:fix": "npm run lint -- --fix",
+    "format": "prettier \"src/**/*.{js,json,ts}\"",
     "start": "ts-node --transpile-only src/server.ts"
   },
   "repository": {

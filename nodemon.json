@@ -1,0 +1,6 @@
+{
+  "watch": ["src", ".env"],
+  "ext": "js, ts, json",
+  "ignore": ["src/seeder.*"],
+  "exec": "node ./src/server.js"
+}

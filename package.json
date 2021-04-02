@@ -1,0 +1,37 @@
+{
+  "name": "express-starter",
+  "version": "1.0.0",
+  "description": "Node/Express with Mongo/Mongoose RESTful API with Multitenancy",
+  "main": "src/server.ts",
+  "engines": {
+    "node": ">=14.x",
+    "npm": ">=6.x"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michael-rayner92/express-starter.git"
+  },
+  "keywords": [
+    "Node",
+    "Express",
+    "Mongoose",
+    "Mongo",
+    "boiler",
+    "REST",
+    "API"
+  ],
+  "author": "Michael Rayner <michael@genspeakapp.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michael-rayner92/express-starter/issues"
+  },
+  "homepage": "https://github.com/michael-rayner92/express-starter#readme",
+  "devDependencies": {
+    "eslint": "^7.23.0",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1"
+  }
+}

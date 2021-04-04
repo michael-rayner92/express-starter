@@ -47,6 +47,7 @@
   },
   "homepage": "https://github.com/michael-rayner92/express-starter#readme",
   "devDependencies": {
+    "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",
     "@types/node": "^14.14.37",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
@@ -64,6 +65,7 @@
   "dependencies": {
     "@types/mongoose": "^5.10.4",
     "colors": "^1.4.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.12.3"

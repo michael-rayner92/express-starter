@@ -1,5 +1,5 @@
 import { CorsOptions } from "cors";
-import config from "./index";
+import config from "@config";
 
 const { isProd, domains } = config;
 const whitelist = Object.values(domains)

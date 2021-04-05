@@ -1,8 +1,7 @@
 import express from "express";
 import cors from "cors";
-import config from "./config";
-import corsOptions from "config/corsOptions";
-// import corsOptions from "./config/corsOptions";
+import config from "@config";
+import corsOptions from "@config/corsOptions";
 import "colors";
 
 const { env, port } = config;

@@ -13,13 +13,19 @@
     "emitDecoratorMetadata": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./build",
+    "outDir": "build",
     "baseUrl": "src",
     "module": "commonjs",
     "moduleResolution": "node",
     // "types": ["node"],
     "paths": {
-      "config/*": ["config/*"]
+      "@config": ["config"],
+      "@types/*": ["@types/*"],
+      "@config/*": ["config/*"],
+      "@models/*": ["models/*"],
+      "@loaders/*": ["loaders/*"],
+      "@middleware/*": ["middleware/*"],
+      "@controllers/*": ["controllers/*"]
     }
   },
   "include": ["./src/**/*"],

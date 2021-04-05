@@ -10,7 +10,8 @@
   "scripts": {
     "test": "jest",
     "build": "tsc",
-    "start": "ts-node --transpile-only src/server.ts",
+    "dev": "nodemon",
+    "start": "npm run build && node -r tsconfig-paths/register build/server.js",
     "data:import": "ts-node --transpile-only ./src/seeder.ts",
     "data:destroy": "ts-node --transpile-only src/seeder.ts -d",
     "lint": "eslint \"src/**/*.{js,json,ts}\"",
@@ -60,6 +61,7 @@
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
     "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^4.2.3"
   },
   "dependencies": {

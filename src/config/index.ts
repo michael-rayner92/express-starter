@@ -7,7 +7,7 @@ const envVars = dotenv.config();
 if (envVars.error) throw new Error("⚠ No .env file found");
 
 export default {
-  port: parseInt(process.env.PORT ?? "3000", 10),
+  port: parseInt(process.env.PORT ?? "5000", 10),
   env: process.env.NODE_ENV,
   isDev: process.env.NODE_ENV === "development",
   isProd: process.env.NODE_ENV === "production",
@@ -21,7 +21,6 @@ export default {
   },
   domains: {
     api: process.env.API_URL,
-    buddy: process.env.BUDDY_URL,
     public: process.env.PUBLIC_URL
   },
   jwt: {

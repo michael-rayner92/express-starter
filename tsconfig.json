@@ -1,8 +1,9 @@
 {
   "compilerOptions": {
+    "strict": true,
     "target": "ES2017",
     "lib": ["ES2017", "ESNext.AsyncIterable"],
-    "typeRoots": ["./node_modules/@types", "./src/types"],
+    "typeRoots": ["./node_modules/@types", "src/@types"],
     "pretty": true,
     "noEmit": false,
     "allowJs": true,
@@ -12,11 +13,20 @@
     "emitDecoratorMetadata": true,
     "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": true,
-    "outDir": "./build",
-    "baseUrl": "./src",
+    "outDir": "build",
+    "baseUrl": "src",
     "module": "commonjs",
     "moduleResolution": "node",
-    "types": ["node"]
+    // "types": ["node"],
+    "paths": {
+      "@config": ["config"],
+      "@types/*": ["@types/*"],
+      "@config/*": ["config/*"],
+      "@models/*": ["models/*"],
+      "@loaders/*": ["loaders/*"],
+      "@middleware/*": ["middleware/*"],
+      "@controllers/*": ["controllers/*"]
+    }
   },
   "include": ["./src/**/*"],
   "exclude": ["node_modules"]

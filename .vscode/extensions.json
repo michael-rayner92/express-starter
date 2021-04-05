@@ -1,0 +1,23 @@
+{
+  "recommendations": [
+    "aaron-bond.better-comments",
+    "coenraads.bracket-pair-colorizer",
+    "vivaxy.vscode-conventional-commits",
+    "mikestead.dotenv",
+    "dsznajder.es7-react-js-snippets",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "xabikos.javascriptsnippets",
+    "leizongmin.node-module-intellisense",
+    "arcticicestudio.nord-visual-studio-code",
+    "christian-kohler.npm-intellisense",
+    "esbenp.prettier-vscode",
+    "gruntfuggly.todo-tree",
+    "pflannery.vscode-versionlens",
+    "vscode-icons-team.vscode-icons",
+    "skyran.js-jsx-snippets",
+    "redhat.vscode-yaml",
+    "editorconfig.editorconfig"
+  ],
+  "unwantedRecommendations": []
+}

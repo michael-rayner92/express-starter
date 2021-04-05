@@ -1,31 +1,20 @@
-import cors from "cors";
+import { CorsOptions } from "cors";
 import config from "./index";
 
 const { isProd, domains } = config;
-const whitelist = Object.keys(domains).map(domain => domain);
+const whitelist = Object.values(domains)
+  .filter(domain => domain) // Remove empty values
+  .map(domain => domain);
 
-const corsOptionsDelegate = (req, cb) => {
-  const isWhitelisted = whitelist.indexOf(req.header("Origin")) !== -1;
-  const isAllowedExt = req.path.endsWith(".jpg");
-  const isAllowed = isWhitelisted && isAllowedExt;
+const corsOptions: CorsOptions = {
+  origin: (origin, cb) => {
+    if (!isProd) return cb(null, true);
 
-  const corsOptions = { origin: isAllowed };
-  cb(null, corsOptions);
-};
+    const isWhitelisted = !origin || whitelist.indexOf(origin) !== -1;
+    if (isWhitelisted) return cb(null, isWhitelisted);
 
-const loadCors = () => {
-  if (isProd) return cors(corsOptionsDelegate());
-  return cors();
-};
-
-const corsOptions = {
-  origin: (origin: string, callback): void => {
-    try {
-      if (origin == null) return;
-      if (whitelist.indexOf(origin) !== -1) return callback(null, true);
-    } catch (err) {
-      return callback(new Error(`Origin ${origin} not allowed by CORS`));
-    }
+    const errMsg = `Origin ${origin} not allowed by CORS`;
+    return cb(new Error(errMsg));
   },
   optionsSuccessStatus: 200
 };

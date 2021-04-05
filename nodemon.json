@@ -1,6 +1,6 @@
 {
   "watch": ["src", ".env"],
   "ext": "js, ts, json",
-  "ignore": ["src/seeder.*"],
+  "ignore": [".git", "node_modules/", "build/", "src/seeder.*"],
   "exec": "ts-node --transpile-only src/server.ts"
 }

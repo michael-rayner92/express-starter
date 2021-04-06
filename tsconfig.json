@@ -20,10 +20,14 @@
     // "types": ["node"],
     "paths": {
       "@config": ["config"],
+      "@loaders": ["loaders"],
       "@types/*": ["@types/*"],
       "@config/*": ["config/*"],
       "@models/*": ["models/*"],
+      "@public/*": ["public/*"],
+      "@routes/*": ["routes/*"],
       "@loaders/*": ["loaders/*"],
+      "@locales/*": ["locales/*"],
       "@middleware/*": ["middleware/*"],
       "@controllers/*": ["controllers/*"]
     }

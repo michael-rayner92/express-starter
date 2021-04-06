@@ -1,7 +1,6 @@
 import express from "express";
-import cors from "cors";
 import config from "@config";
-import corsOptions from "@config/corsOptions";
+import loaders from "@loaders";
 import "colors";
 
 const { env, port } = config;
@@ -10,15 +9,7 @@ const serverActiveMsg = `Server running in ${env} mode on port ${port}`;
 const startServer = async () => {
   const app: express.Application = express();
 
-  app.use(express.json());
-  app.use(express.urlencoded({ extended: false }));
-
-  app.use(cors(corsOptions));
-
-  app.get("/", (req, res) => {
-    console.log("ROUTE WORKS!");
-    res.status(200).send({ message: "Success" });
-  });
+  await loaders(app);
 
   app
     .listen(port, () => console.log(`${serverActiveMsg}`.yellow.bold))

@@ -17,7 +17,7 @@ const i18nLoader = (app: express.Application): void => {
         order: ["querystring", "cookie"],
         caches: ["cookie"]
       },
-      debug: config.isDev,
+      // debug: config.isDev,
       saveMissing: config.isDev,
       fallbackLng: "en",
       defaultNS: "common",

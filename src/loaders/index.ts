@@ -1,21 +1,19 @@
 import express from "express";
-import cors from "cors";
 import loadi18n from "@loaders/loadi18n";
-import corsOptions from "@config/corsOptions";
+import loadExpress from "@loaders/loadExpress";
+import loadSecurity from "@loaders/loadSecurity";
 import "colors";
 
 const startServer = async (app: express.Application): Promise<void> => {
-  app.use(express.json());
-  app.use(express.urlencoded({ extended: false }));
+  await loadExpress(app);
 
-  app.use(cors(corsOptions));
-
+  loadSecurity(app);
   loadi18n(app);
 
   app.get("/", (req, res) => {
-    console.log("ROUTE WORKS!");
-    console.log("LANGUAGE HEADER: ", req.language);
-    console.log("LANGUAGES HEADER: ", req.languages);
+    // console.log("ROUTE WORKS!");
+    // console.log("LANGUAGE HEADER: ", req.language);
+    // console.log("LANGUAGES HEADER: ", req.languages);
     // req.i18n.changeLanguage("nl");
 
     // Basic using default translation ns

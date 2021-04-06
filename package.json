@@ -52,6 +52,7 @@
     "@types/cors": "^2.8.10",
     "@types/express": "^4.17.11",
     "@types/i18next-fs-backend": "^1.0.0",
+    "@types/method-override": "0.0.31",
     "@types/node": "^14.14.37",
     "@typescript-eslint/eslint-plugin": "^4.20.0",
     "@typescript-eslint/parser": "^4.20.0",
@@ -75,6 +76,7 @@
     "i18next": "^20.1.0",
     "i18next-fs-backend": "^1.1.1",
     "i18next-http-middleware": "^3.1.0",
+    "method-override": "^3.0.0",
     "mongoose": "^5.12.3"
   }
 }

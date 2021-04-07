@@ -1,4 +1,10 @@
 node_modules
 build
+tests
+package.json
+package-lock.json
 .vscode
 .github
+*.md
+*.css
+*.scss

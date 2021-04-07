@@ -1,5 +1,6 @@
 import express from "express";
 import config from "@config";
+import Logger from "@config/logOptions";
 import loaders from "@loaders";
 import "colors";
 
@@ -12,9 +13,9 @@ const startServer = async () => {
   await loaders(app);
 
   app
-    .listen(port, () => console.log(`${serverActiveMsg}`.yellow.bold))
+    .listen(port, () => Logger.info(serverActiveMsg))
     .on("error", err => {
-      console.log(`Server failed with ${err}`.red.bold);
+      Logger.error(`Server failed with ${err}`);
       process.exit(1);
     });
 };

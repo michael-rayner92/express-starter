@@ -5,6 +5,7 @@
     ".git",
     "node_modules/",
     "build/",
+    "logs/",
     "./src/seeder.*",
     "./src/locales/*"
   ],

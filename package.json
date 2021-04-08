@@ -15,9 +15,9 @@
     "start": "npm run build && node -r tsconfig-paths/register build/server.js",
     "data:import": "ts-node --transpile-only ./src/seeder.ts",
     "data:destroy": "ts-node --transpile-only src/seeder.ts -d",
-    "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write .",
-    "lint": "eslint \"src/**/*.{js,json,ts}\"",
+    "format:check": "prettier --check .",
+    "format:fix": "prettier --write .",
+    "lint": "eslint --color \"src/**/*.{js,json,ts}\"",
     "lint:fix": "npm run lint -- --fix"
   },
   "husky": {

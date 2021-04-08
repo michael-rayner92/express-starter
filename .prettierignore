@@ -1,5 +1,10 @@
 .github
 .vscode
 .package-lock.json
+
+logs
 build
 node_modules
+
+*.md
+.env

@@ -14,13 +14,13 @@ const startServer = async (app: express.Application): Promise<void> => {
   loadi18n(app);
 
   app.get("/", (req, res) => {
-    Logger.error("This is an error log");
-    Logger.warn("This is a warn log");
-    Logger.info("This is a info log");
-    Logger.http("This is a http log");
-    Logger.verbose("This is a verbose log");
-    Logger.debug("This is a debug log");
-    Logger.silly("This is a silly log");
+    // Logger.error("This is an error log", { env: "development" });
+    // Logger.warn("This is a warn log");
+    // Logger.info("This is a info log", { env: "random metadata" });
+    // Logger.http("This is a http log");
+    // Logger.verbose("This is a verbose log");
+    // Logger.debug("This is a debug log");
+    // Logger.silly("This is a silly log");
 
     // i18n Utils
     // req.i18n.changeLanguage("nl");

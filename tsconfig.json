@@ -3,7 +3,7 @@
     "strict": true,
     "target": "ES2017",
     "lib": ["ES2017", "ESNext.AsyncIterable"],
-    "typeRoots": ["./node_modules/@types", "src/@types"],
+    "typeRoots": ["./node_modules/@types", "src/interfaces/@types"],
     "pretty": true,
     "noEmit": false,
     "allowJs": true,
@@ -15,23 +15,26 @@
     "forceConsistentCasingInFileNames": true,
     "outDir": "build",
     "baseUrl": "src",
+    "rootDir": "src",
     "module": "commonjs",
     "moduleResolution": "node",
-    // "types": ["node"],
     "paths": {
+      "*": ["node_modules/*"],
       "@config": ["config"],
       "@loaders": ["loaders"],
-      "@types/*": ["@types/*"],
       "@config/*": ["config/*"],
-      "@models/*": ["models/*"],
-      "@public/*": ["public/*"],
-      "@routes/*": ["routes/*"],
       "@loaders/*": ["loaders/*"],
-      "@locales/*": ["locales/*"],
-      "@middleware/*": ["middleware/*"],
-      "@controllers/*": ["controllers/*"]
+      "@models/*": ["api/v1/models/*"],
+      "@routes/*": ["api/v1/routes/*"],
+      "@helpers/*": ["api/v1/helpers/*"],
+      "@locales/*": ["api/v1/locales/*"],
+      "@services/*": ["api/v1/services/*"],
+      "@interfaces/*": ["api/v1/interfaces/*"],
+      "@middleware/*": ["api/v1/middleware/*"],
+      "@controllers/*": ["api/v1/controllers/*"],
+      "@types/*": ["api/v1/interfaces/@types/*"]
     }
   },
-  "include": ["./src/**/*"],
-  "exclude": ["node_modules"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "build"]
 }

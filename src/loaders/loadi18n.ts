@@ -10,8 +10,8 @@ const i18nLoader = (app: express.Application): void => {
     .use(i18nextMiddleware.LanguageDetector)
     .init({
       backend: {
-        loadPath: "src/locales/{{lng}}/{{ns}}.json",
-        addPath: "src/locales/{{lng}}/{{ns}}.missing.json"
+        loadPath: "src/api/v1/locales/{{lng}}/{{ns}}.json",
+        addPath: "src/api/v1/locales/{{lng}}/{{ns}}.missing.json"
       },
       detection: {
         order: ["querystring", "cookie"],

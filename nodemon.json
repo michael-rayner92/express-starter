@@ -1,13 +1,14 @@
 {
-  "watch": ["src", ".env"],
+  "restartable": "rs",
   "ext": "js, ts, json",
+  "watch": ["src", ".env"],
   "ignore": [
     ".git",
-    "node_modules/",
-    "build/",
-    "logs/",
-    "./src/seeder.*",
-    "./src/locales/*"
+    "logs",
+    "build",
+    "node_modules",
+    "src/seeder.ts",
+    "src/locales/*"
   ],
-  "exec": "ts-node --transpile-only -r tsconfig-paths/register src/server.ts"
+  "exec": "ts-node -r tsconfig-paths/register src/server.ts"
 }

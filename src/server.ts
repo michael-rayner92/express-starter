@@ -1,4 +1,5 @@
 import express from "express";
+import gracefulShutdown from "http-graceful-shutdown";
 import config from "@config";
 import Logger from "@config/logOptions";
 import loaders from "@loaders";
@@ -18,6 +19,8 @@ const startServer = async () => {
       Logger.error(`Server failed with ${err}`);
       process.exit(1);
     });
+
+  gracefulShutdown(app);
 };
 
 startServer();

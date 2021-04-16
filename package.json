@@ -3,24 +3,22 @@
   "version": "1.0.0",
   "description": "Node/Express with Mongo/Mongoose RESTful API with Multitenancy",
   "main": "src/server.ts",
-  "engines": {
-    "node": ">=14.x",
-    "npm": ">=6.x"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michael-rayner92/express-starter.git"
   },
   "scripts": {
     "test": "jest",
     "dev": "nodemon",
+    "start": "node build/server.js",
+    "heroku:local": "heroku local web -e .env.test",
     "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./build",
-    "start:prod": "node -r ts-node/register/transpile-only -r tsconfig-paths/register build/server.js",
-    "version": "npm version patch",
-    "pm2": "pm2-runtime start ecosystem.config.js --env production",
-    "start": "npm run build && node -r tsconfig-paths/register build/server.js",
-    "data:import": "ts-node --transpile-only ./src/seeder.ts",
-    "data:destroy": "ts-node --transpile-only src/seeder.ts -d",
+    "lint": "eslint --color \"src/**/*.{js,json,ts}\"",
+    "lint:fix": "npm run lint -- --fix",
     "format:check": "prettier --check .",
     "format:fix": "prettier --write .",
-    "lint": "eslint --color \"src/**/*.{js,json,ts}\"",
-    "lint:fix": "npm run lint -- --fix"
+    "data:import": "ts-node --transpile-only ./src/seeder.ts",
+    "data:destroy": "ts-node --transpile-only src/seeder.ts -d"
   },
   "husky": {
     "hooks": {
@@ -34,9 +32,9 @@
       "git add"
     ]
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/michael-rayner92/express-starter.git"
+  "engines": {
+    "node": "14.x",
+    "npm": "6.x"
   },
   "keywords": [
     "Node",
@@ -67,7 +65,6 @@
     "method-override": "^3.0.0",
     "mongoose": "^5.12.3",
     "morgan": "^1.10.0",
-    "pm2": "^4.5.6",
     "tsconfig-paths": "^3.9.0",
     "winston": "^3.3.3",
     "winston-mongodb": "^5.0.7"

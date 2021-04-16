@@ -19,8 +19,14 @@
 
 #### To Look Into
 - Node process exit/restarts with Heroku
-- Correct pm2 configuration
 - Testing build flow
 - Clean up start scripts
 - Clean up unneeded values into config files (Reduce clutter/confusion)
+
+## Old Start Scripts
+```
+    "start": "node -r tsconfig-paths/register build/server.js",
+    "start:prod": "node -r ts-node/register/transpile-only -r tsconfig-paths/register build/server.js"
+```
+*Don't seem to be needed with current build and nodemon setup*
 

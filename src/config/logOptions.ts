@@ -2,6 +2,7 @@ import "winston-mongodb";
 import winston from "winston";
 import config from "@config";
 
+const { isDev } = config;
 const { username, password, cluster } = config.mongo;
 const mongoUri = `mongodb+srv://${username}:${password}@${cluster}/logs`;
 const mongoOptions = {
@@ -30,7 +31,7 @@ const levels = {
   silly: 6
 };
 
-const level = config.isDev ? "silly" : "warn";
+const level = isDev ? "silly" : "warn";
 
 winston.addColors(colors);
 
@@ -47,14 +48,17 @@ const format = winston.format.combine(
 
 const transports = [
   new winston.transports.Console(),
-  // ? @@question Should local file logs be disabled in production?
-  new winston.transports.File({ filename: "logs/error.log", level: "error" }),
-  new winston.transports.File({ filename: "logs/all.log" }),
+  new winston.transports.File({ filename: "logs/all.log", silent: !isDev }),
+  new winston.transports.File({
+    filename: "logs/error.log",
+    level: "error",
+    silent: !isDev
+  }),
   new winston.transports.MongoDB({
     db: mongoUri,
     level: "error",
     name: "MongoLogs",
-    silent: config.isDev,
+    silent: isDev,
     options: mongoOptions,
     decolorize: true,
     capped: true

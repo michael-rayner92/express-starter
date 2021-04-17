@@ -15,6 +15,7 @@ export default {
   isTest: process.env.NODE_ENV === "test",
   mongo: {
     uri: process.env.MONGO_URI,
+    logs: process.env.MONGO_LOGS || "devLogs",
     username: process.env.MONGO_USER,
     cluster: process.env.MONGO_CLUSTER,
     options: process.env.MONGO_OPTIONS,

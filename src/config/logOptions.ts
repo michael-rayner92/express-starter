@@ -3,8 +3,8 @@ import winston from "winston";
 import config from "@config";
 
 const { isDev } = config;
-const { username, password, cluster } = config.mongo;
-const mongoUri = `mongodb+srv://${username}:${password}@${cluster}/logs`;
+const { username, password, cluster, logs } = config.mongo;
+const mongoUri = `mongodb+srv://${username}:${password}@${cluster}/${logs}`;
 const mongoOptions = {
   poolSize: 2,
   useNewUrlParser: true,

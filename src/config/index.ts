@@ -1,10 +1,11 @@
 import dotenv from "dotenv";
-import "colors";
 
 process.env.NODE_ENV = process.env.NODE_ENV ?? "development";
 const envVars = dotenv.config();
 
-if (envVars.error) throw new Error("⚠ No .env file found");
+if (process.env.NODE_ENV === "development" && envVars.error) {
+  throw new Error("⚠ No .env file found");
+}
 
 export default {
   port: parseInt(process.env.PORT ?? "5000", 10),

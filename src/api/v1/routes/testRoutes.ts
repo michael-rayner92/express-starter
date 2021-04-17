@@ -6,7 +6,7 @@ const router: Router = Router();
 // Test Logs
 const LOGGER_DEMO = true;
 const LOCALES_DEMO = true;
-const LOGS = false;
+const LOGS = true;
 
 const testRoutes = (app: Router): void => {
   app.use("/", router);

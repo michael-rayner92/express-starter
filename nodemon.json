@@ -8,7 +8,7 @@
     "build",
     "node_modules",
     "src/seeder.ts",
-    "src/locales/*"
+    "src/api/v1/locales/*"
   ],
   "exec": "ts-node -r tsconfig-paths/register src/server.ts"
 }

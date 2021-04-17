@@ -1,3 +1,9 @@
 {
-  "notFound": "Niet gevonden"
+  "err404": "Route niet gevonden",
+  "err500": "Interne Server Fout",
+  "err11000": "Dubbele veldwaarde ingevoerd",
+  "errCast": "Bron niet gevonden",
+  "errValidation": "Er ging iets mis",
+  "requiredFieldMissing": "Dit is een verplicht veld",
+  "default": "Er ging iets mis"
 }

@@ -1,12 +1,13 @@
 import { Router } from "express";
 import Logger from "@config/logOptions";
+import ErrorResponse from "@utils/errorResponse";
 
 const router: Router = Router();
 
 // Test Logs
 const LOGGER_DEMO = true;
 const LOCALES_DEMO = true;
-const LOGS = true;
+const LOGS = false;
 
 const testRoutes = (app: Router): void => {
   app.use("/", router);
@@ -31,8 +32,8 @@ const testRoutes = (app: Router): void => {
       // const translation = req.t("init");
 
       // Select different ns - errors
-      const translation = req.t("errors:notFound");
-      const exists = req.i18n.exists("errors:notFound");
+      const translation = req.t("errors:err404");
+      const exists = req.i18n.exists("errors:err404");
 
       // const errNamespace = req.i18n.getFixedT([req.language, "en"], "errors");
       // const translation = errNamespace("requiredFieldMissing");
@@ -43,6 +44,14 @@ const testRoutes = (app: Router): void => {
     }
 
     res.status(200).send({ message: "Success" });
+  });
+
+  app.get("/throw", (req, res, next) => {
+    throw new Error("You broke me!!!!");
+  });
+
+  app.get("/error", (req, res, next) => {
+    throw new ErrorResponse("Throw generic error", 500);
   });
 };
 

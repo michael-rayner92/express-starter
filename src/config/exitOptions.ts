@@ -13,12 +13,13 @@ import GracefulShutdown from "http-graceful-shutdown";
 // - this function here in this example takes one second to complete
 const onCleanUp = (signal: string): Promise<void> => {
   return new Promise(resolve => {
-    Logger.info("... called signal: " + signal);
-    Logger.info("... in cleanup");
+    Logger.error(`Server shutting down on ${signal} signal`);
+    Logger.info("...🧹 in cleanup");
+
     setTimeout(() => {
-      Logger.info("... cleanup finished");
+      Logger.info("...🗑 cleanup finished");
       resolve();
-    }, 1000);
+    }, 500);
   });
 };
 
@@ -26,7 +27,7 @@ const onCleanUp = (signal: string): Promise<void> => {
 // -- sync function
 // -- should be very short (not time consuming)
 const onClose = (): void => {
-  Logger.info("Server gracefully shut down.....");
+  Logger.error("Server gracefully shut down...");
 };
 
 const exitOptions: GracefulShutdown.Options = {

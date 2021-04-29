@@ -6,5 +6,7 @@ logs
 build
 node_modules
 
+*.missing.json
+
 *.md
 .env

@@ -8,6 +8,8 @@ package-lock.json
 .vscode
 .github
 
+*.missing.json
+
 *.md
 *.css
 *.scss

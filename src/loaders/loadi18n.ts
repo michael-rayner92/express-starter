@@ -22,8 +22,7 @@ const i18nLoader = (app: express.Application): void => {
       fallbackLng: "en",
       defaultNS: "common",
       fallbackNS: "common",
-      preload: ["en", "nl"],
-      // preload: ["en", "de", "fr", "nl"],
+      preload: ["en", "nl"], // @@todo "de", "fr"
       ns: ["common", "errors", "glossary", "validation"]
     });
 

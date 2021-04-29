@@ -61,7 +61,7 @@ jobs:
       - name: Run ESLint
         # Run the lint custom NPM command that triggers the
         # ESLint linter check
-        run: npm run lint
+        run: npm run lint:check
 
       - name: Run Prettier
         # Run the format:check custom NPM command

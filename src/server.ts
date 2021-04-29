@@ -1,4 +1,6 @@
+import path from "path";
 import express from "express";
+import favicon from "serve-favicon";
 import gracefulShutdown from "http-graceful-shutdown";
 import exitOptions from "@config/exitOptions";
 import Logger from "@config/logOptions";
@@ -11,7 +13,15 @@ const serverActiveMsg = `Server running in ${env} mode on port ${port}`;
 const startServer = async () => {
   const app: express.Application = express();
 
-  await loaders(app);
+  // Load Favicon
+  app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+
+  loaders(app);
+  // Add if asynchronous
+  // try {
+  // } catch (err) {
+  // Logger.error("Failed to load express server");
+  // }
 
   app
     .listen(port, () => Logger.info(serverActiveMsg))
@@ -20,37 +30,12 @@ const startServer = async () => {
       process.exit(1);
     });
 
-  // @@todo Work back from current state to get the exitOptions working
-  // @@link https://github.com/sebhildebrandt/http-graceful-shutdown/blob/master/examples/express-advanced-server.js
-
-  // this enables the graceful shutdown with advanced options
-  gracefulShutdown(app, {
-    signals: "SIGINT SIGTERM",
-    timeout: 0,
-    development: false,
-    onShutdown: function cleanup(signal) {
-      return new Promise(resolve => {
-        console.log();
-        console.log('"onShutdown" function');
-        console.log("... called signal: " + signal);
-        console.log("... in cleanup");
-        console.log("... for 5 seconds");
-        console.log("...");
-        setTimeout(function () {
-          console.log("... cleanup finished");
-          resolve();
-        }, 5000);
-      });
-    },
-    forceExit: true,
-    finally: function () {
-      console.log();
-      console.log('In "finally" function');
-      console.log("... Server gracefully shutted down.....");
-    }
+  process.on("unhandledRejection", (reason, promise) => {
+    // Application specific logging, throwing an error, or other logic here
+    Logger.error("Unhandled Rejection at:", promise, "reason:", reason);
   });
 
-  // gracefulShutdown(app, exitOptions);
+  gracefulShutdown(app, exitOptions);
 };
 
 startServer();

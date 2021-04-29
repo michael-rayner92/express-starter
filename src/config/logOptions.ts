@@ -41,8 +41,10 @@ const format = winston.format.combine(
   winston.format.json(),
   winston.format.metadata(),
   winston.format.timestamp(),
+  // winston.format.errors({ stack: true }),
   winston.format.printf(
     info => `${info.timestamp} ${info.level}: ${info.message}`
+    // info => `${info.timestamp} ${info.level}: ${info.stack || info.message}`
   )
 );
 

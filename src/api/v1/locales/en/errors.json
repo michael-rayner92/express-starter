@@ -1,4 +1,9 @@
 {
-  "notFound": "Route not found",
-  "requiredFieldMissing": "This is a required field"
+  "err404": "Route not found",
+  "err500": "Internal Server Error",
+  "err11000": "Duplicate field value entered",
+  "errCast": "Resource not found",
+  "errValidation": "@@todo",
+  "requiredFieldMissing": "This is a required field",
+  "default": "Something went wrong"
 }

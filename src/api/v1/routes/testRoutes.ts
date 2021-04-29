@@ -12,7 +12,7 @@ const LOGS = false;
 const testRoutes = (app: Router): void => {
   app.use("/", router);
 
-  app.get("/", (req, res) => {
+  router.get("/", (req, res) => {
     if (LOGS && LOGGER_DEMO) {
       Logger.error("This is an error log", { env: "development" });
       Logger.warn("This is a warn log");
@@ -46,11 +46,11 @@ const testRoutes = (app: Router): void => {
     res.status(200).send({ message: "Success" });
   });
 
-  app.get("/throw", (req, res, next) => {
+  router.get("/throw", (req, res, next) => {
     throw new Error("You broke me!!!!");
   });
 
-  app.get("/error", (req, res, next) => {
+  router.get("/error", (req, res, next) => {
     throw new ErrorResponse("Throw generic error", 500);
   });
 };

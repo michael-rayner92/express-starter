@@ -13,7 +13,7 @@ const serverActiveMsg = `Server running in ${env} mode on port ${port}`;
 const startServer = async () => {
   const app: express.Application = express();
 
-  app.use(favicon(path.join(__dirname, "public", "favicon.ico")));
+  app.use(favicon(path.join(__dirname, "../public", "favicon.ico")));
   // app.use(express.static("public"));
 
   loaders(app);

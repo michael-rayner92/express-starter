@@ -23,7 +23,6 @@
       "@config": ["config"],
       "@loaders": ["loaders"],
       "@config/*": ["config/*"],
-      "@public/*": ["public/*"],
       "@loaders/*": ["loaders/*"],
       "@utils/*": ["api/v1/utils/*"],
       "@models/*": ["api/v1/models/*"],
@@ -38,5 +37,5 @@
     }
   },
   "include": ["src/**/*"],
-  "exclude": ["node_modules", "build", "src/public"]
+  "exclude": ["node_modules", "build", "public"]
 }

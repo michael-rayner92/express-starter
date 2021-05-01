@@ -6,6 +6,7 @@
   "editor.formatOnSave": true,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
+  "editor.renderWhitespace": "boundary",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
@@ -31,6 +32,7 @@
     "configuration",
     "documentation",
     "authentication",
+    "enhancement",
     "new feature"
   ]
 }

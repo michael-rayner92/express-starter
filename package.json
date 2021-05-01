@@ -12,7 +12,7 @@
     "dev": "nodemon",
     "start": "node build/server.js",
     "heroku:local": "heroku local web -e .env.test",
-    "build": "tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./build",
+    "build": "tsc -p tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./build",
     "lint:check": "eslint --color \"src/**/*.{js,json,ts}\"",
     "lint:fix": "npm run lint -- --fix",
     "format:check": "prettier --check .",

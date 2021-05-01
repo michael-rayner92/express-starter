@@ -51,9 +51,11 @@ export const testErrorRoute: RequestHandler = (req, res) => {
   throw new Error("You broke me!!!!");
 };
 
-export const testThrowRoute: RequestHandler = (req, res) => {
-  throw new ErrorResponse("Throw generic error", 500);
-};
+export const testThrowRoute: RequestHandler = asyncHandler(
+  async (req, res, next) => {
+    return next(new ErrorResponse("Throw generic error", 500));
+  }
+);
 
 export const testSendEmail = asyncHandler(async (req, res) => {
   await sendEmail({

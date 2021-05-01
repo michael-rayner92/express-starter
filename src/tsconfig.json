@@ -1,0 +1,8 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "outDir": "../build",
+    "resolveJsonModule": true
+  },
+  "references": [{ "path": "../" }]
+}

@@ -1,8 +1,8 @@
 {
   "name": "express-starter",
-  "version": "1.0.0",
+  "version": "v1.0.0",
   "description": "Node/Express with Mongo/Mongoose RESTful API with Multitenancy",
-  "main": "src/server.ts",
+  "main": "build/server.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/michael-rayner92/express-starter.git"
@@ -12,7 +12,7 @@
     "dev": "nodemon",
     "start": "node build/server.js",
     "heroku:local": "heroku local web -e .env.test",
-    "build": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./build",
+    "build": "tsc --project tsconfig.prod.json && tscpaths -p tsconfig.prod.json -s ./src -o ./build",
     "lint:check": "eslint --color \"src/**/*.{js,json,ts}\"",
     "lint:fix": "npm run lint -- --fix",
     "format:check": "prettier --check .",
@@ -53,6 +53,8 @@
   "homepage": "https://github.com/michael-rayner92/express-starter#readme",
   "dependencies": {
     "@sendgrid/mail": "^7.4.2",
+    "@sentry/node": "^6.3.5",
+    "@sentry/tracing": "^6.3.5",
     "colors": "^1.4.0",
     "compression": "^1.7.4",
     "cors": "^2.8.5",

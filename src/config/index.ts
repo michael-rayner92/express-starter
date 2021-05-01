@@ -1,45 +1,51 @@
 import dotenv from "dotenv";
+import { name, version } from "../../package.json";
 
-process.env.NODE_ENV = process.env.NODE_ENV ?? "development";
+const env = process.env.NODE_ENV ?? "development";
+process.env.NODE_ENV = env;
+
 const envVars = dotenv.config();
 
-if (process.env.NODE_ENV === "development" && envVars.error) {
+if (env === "development" && envVars.error) {
   throw new Error("⚠ No .env file found");
 }
 
 export default {
+  env,
+  name,
+  version,
   port: parseInt(process.env.PORT ?? "5000", 10),
-  env: process.env.NODE_ENV,
-  isDev: process.env.NODE_ENV === "development",
-  isProd: process.env.NODE_ENV === "production",
-  isTest: process.env.NODE_ENV === "test",
+  isDev: env === "development",
+  isProd: env === "production",
+  isTest: env === "test",
   mongo: {
-    uri: process.env.MONGO_URI,
-    logs: process.env.MONGO_LOGS || "devLogs",
-    username: process.env.MONGO_USER,
-    cluster: process.env.MONGO_CLUSTER,
-    options: process.env.MONGO_OPTIONS,
-    password: process.env.MONGO_PASSWORD
+    uri: process.env.MONGO_URI ?? "",
+    logs: process.env.MONGO_LOGS ?? "devLogs",
+    username: process.env.MONGO_USER ?? "",
+    cluster: process.env.MONGO_CLUSTER ?? "",
+    options: process.env.MONGO_OPTIONS ?? "",
+    password: process.env.MONGO_PASSWORD ?? ""
   },
   domains: {
     api: process.env.API_URL,
     public: process.env.PUBLIC_URL
   },
   jwt: {
-    expire: process.env.JWT_EXPIRE,
+    expire: process.env.JWT_EXPIRE ?? "30d",
     secret: process.env.JWT_SECRET
   },
   sendgrid: {
-    key: process.env.SENDGRID_KEY,
-    user: process.env.SENDGRID_USER,
-    email: process.env.SENDGRID_EMAIL
+    key: process.env.SENDGRID_KEY ?? "",
+    user: process.env.SENDGRID_USER ?? "",
+    email: process.env.SENDGRID_EMAIL ?? ""
   },
   sentry: {
-    dsn: process.env.SENTRY_DSN,
-    org: process.env.SENTRY_ORG,
-    key: process.env.SENTRY_AUTH_TOKEN,
-    project: process.env.SENTRY_PROJECT,
-    release: process.env.SENTRY_RELEASE
+    dsn: process.env.SENTRY_DSN ?? "",
+    org: process.env.SENTRY_ORG ?? "",
+    key: process.env.SENTRY_AUTH_TOKEN ?? "",
+    project: process.env.SENTRY_PROJECT ?? "",
+    environment: process.env.SENTRY_ENVIRONMENT ?? env,
+    release: `${name}@${version}`
   },
   webPush: {
     contact: process.env.WEB_PUSH_CONTACT,

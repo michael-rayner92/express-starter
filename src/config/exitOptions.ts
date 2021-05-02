@@ -17,6 +17,10 @@ const onShutdown = (signal: string): Promise<void> => {
     //   else Logger.info("Mongo connection closed successfully");
     // });
 
+    // @@Todo look at Sentry shutdown
+    // @@Link https://docs.sentry.io/platforms/node/guides/express/configuration/draining
+    // Sentry.close(2000).then(() => process.exit());
+
     setTimeout(() => {
       Logger.info("...🗑 cleanup finished");
       resolve();

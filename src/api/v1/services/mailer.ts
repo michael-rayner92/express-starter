@@ -5,7 +5,7 @@ import { IEmailParams } from "@interfaces/Email";
 
 const { isDev, sendgrid } = config;
 
-sendGridMail.setApiKey(sendgrid.key ?? "");
+sendGridMail.setApiKey(sendgrid.key);
 
 const getMessage = (emailParams: IEmailParams) => {
   const { sendTo, type } = emailParams;
@@ -15,7 +15,7 @@ const getMessage = (emailParams: IEmailParams) => {
 
   return {
     to: sendTo,
-    from: sendgrid.email ?? "fallback@example.com",
+    from: sendgrid.email,
     subject: `${type} email with Node.js and SendGrid`,
     text: body,
     html: `<strong>${body}</strong>`

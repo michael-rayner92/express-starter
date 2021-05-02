@@ -11,7 +11,7 @@ logs
 .npm
 *.log
 *.gz
-npm-debug.log
+npm-debug.log*
 
 # Jest
 coverage

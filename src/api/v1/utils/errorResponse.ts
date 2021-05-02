@@ -1,6 +1,8 @@
 import Logger from "@config/logOptions";
 import { IMetadata } from "@interfaces/Metadata";
 
+// @@Todos check error message double up
+
 class ErrorResponse extends Error {
   constructor(
     public message: string,

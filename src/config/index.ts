@@ -1,5 +1,9 @@
 import dotenv from "dotenv";
-import { name, version } from "../../package.json";
+// import { name, version } from "../../package.json";
+// console.log("PACKAGE NAME", process.env.npm_package_name);
+
+const name = "express-starter";
+const version = "v1.0.0";
 
 const env = process.env.NODE_ENV ?? "development";
 process.env.NODE_ENV = env;

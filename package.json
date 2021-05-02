@@ -12,12 +12,13 @@
     "dev": "nodemon",
     "start": "node build/server.js",
     "heroku:local": "heroku local web -e .env.test",
-    "build": "tsc -p tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./build",
+    "build": "rimraf build && tsc -p tsconfig.prod.json && npm run build:paths",
+    "build:paths": "tscpaths -p tsconfig.prod.json -s src -o build",
     "lint:check": "eslint --color \"src/**/*.{js,json,ts}\"",
     "lint:fix": "npm run lint -- --fix",
     "format:check": "prettier --check .",
     "format:fix": "prettier --write .",
-    "data:import": "ts-node --transpile-only ./src/seeder.ts",
+    "data:import": "ts-node --transpile-only src/seeder.ts",
     "data:destroy": "ts-node --transpile-only src/seeder.ts -d"
   },
   "husky": {
@@ -72,7 +73,6 @@
     "mongoose": "^5.12.3",
     "morgan": "^1.10.0",
     "serve-favicon": "^2.5.0",
-    "tsconfig-paths": "^3.9.0",
     "winston": "^3.3.3",
     "winston-mongodb": "^5.0.7"
   },
@@ -98,7 +98,9 @@
     "lint-staged": "^10.5.4",
     "nodemon": "^2.0.7",
     "prettier": "^2.2.1",
+    "rimraf": "^3.0.2",
     "ts-node": "^9.1.1",
+    "tsconfig-paths": "^3.9.0",
     "tscpaths": "0.0.9",
     "typescript": "^4.2.3"
   }

@@ -34,5 +34,12 @@
     "authentication",
     "enhancement",
     "new feature"
+  ],
+  "cSpell.ignoreWords": [
+    "loadi",
+    "n",
+    "sendgrid",
+    "tsbuildinfo",
+    "tscpaths"
   ]
 }

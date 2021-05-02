@@ -6,15 +6,13 @@ import config from "@config";
 const { isDev, sentry } = config;
 const { dsn, environment, release } = sentry;
 
-console.log("Release: ", release);
-
 // @@Resource
 // @@Link https://docs.sentry.io/platforms/node/guides/express
 
 const sentryLoader = (app: express.Application): void => {
   Sentry.init({
     dsn,
-    debug: true, // isDev,
+    debug: isDev,
     release,
     environment,
     integrations: [

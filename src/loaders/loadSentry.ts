@@ -6,9 +6,6 @@ import config from "@config";
 const { isDev, sentry } = config;
 const { dsn, environment, release } = sentry;
 
-// @@Resource
-// @@Link https://docs.sentry.io/platforms/node/guides/express
-
 const sentryLoader = (app: express.Application): void => {
   Sentry.init({
     dsn,
@@ -27,7 +24,7 @@ const sentryLoader = (app: express.Application): void => {
   app.use(Sentry.Handlers.tracingHandler());
 
   // Test Sentry Setup
-  // app.get("/debug-sentry", function mainHandler(req, res) {
+  // app.get("/debug-sentry", mainHandler (req, res) => {
   //   throw new Error("My first Sentry error!");
   // });
 };

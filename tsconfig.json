@@ -3,7 +3,7 @@
     "strict": true,
     "incremental": true,
     "target": "ES2017",
-    "lib": ["ES2017", "ESNext.AsyncIterable"],
+    "lib": ["dom", "ES2017", "ESNext.AsyncIterable"],
     "typeRoots": ["node_modules/@types", "src/interfaces/@types"],
     "pretty": true,
     "noEmit": false,

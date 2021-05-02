@@ -13,5 +13,3 @@ package-lock.json
 *.md
 *.css
 *.scss
-
-tsconfig-paths-bootstrap.js

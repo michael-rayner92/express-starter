@@ -1,8 +1,8 @@
 import { RequestHandler } from "express";
-import Logger from "@config/logOptions";
+import Logger from "@services/logger";
+import sendEmail from "@services/mailer";
 import ErrorResponse from "@utils/errorResponse";
 import asyncHandler from "@middleware/asyncHandler";
-import sendEmail from "@services/mailer";
 
 // Test Logs
 const LOGGER_DEMO = true;

@@ -1,5 +1,5 @@
 import { ErrorRequestHandler, RequestHandler } from "express";
-import { getTranslation } from "@utils/helpers/i18nHelpers";
+import { getTranslation } from "@services/i18n";
 import ErrorResponse from "@utils/errorResponse";
 import config from "@config";
 

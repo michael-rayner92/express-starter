@@ -4,14 +4,16 @@ import Backend from "i18next-fs-backend";
 import i18nextMiddleware from "i18next-http-middleware";
 import config from "@config";
 
+const localesDir = "src/api/v1/locales";
+
 const i18nLoader = (app: express.Application): void => {
   i18next
     .use(Backend)
     .use(i18nextMiddleware.LanguageDetector)
     .init({
       backend: {
-        loadPath: "src/api/v1/locales/{{lng}}/{{ns}}.json",
-        addPath: "src/api/v1/locales/{{lng}}/{{ns}}.missing.json"
+        loadPath: `${localesDir}/{{lng}}/{{ns}}.json`,
+        addPath: `${localesDir}/{{lng}}/{{ns}}.missing.json`
       },
       detection: {
         order: ["querystring", "cookie"],

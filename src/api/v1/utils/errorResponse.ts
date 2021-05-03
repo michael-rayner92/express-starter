@@ -1,4 +1,4 @@
-import Logger from "@config/logOptions";
+import Logger from "@services/logger";
 import { IMetadata } from "@interfaces/Metadata";
 
 // @@Todos check error message double up

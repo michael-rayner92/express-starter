@@ -1,7 +1,7 @@
 import express from "express";
 import morgan from "morgan";
 import config from "@config";
-import Logger from "@config/logOptions";
+import Logger from "@services/logger";
 
 const format = "tiny"; // "dev" | "tiny"
 const stream: morgan.StreamOptions = {

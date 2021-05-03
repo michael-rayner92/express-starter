@@ -1,7 +1,7 @@
 import sendGridMail from "@sendgrid/mail";
 import config from "@config";
-import Logger from "@config/logOptions";
-import { IEmailParams } from "@interfaces/Email";
+import Logger from "@services/logger";
+import { IEmailParams } from "./types";
 
 const { isDev, sendgrid } = config;
 

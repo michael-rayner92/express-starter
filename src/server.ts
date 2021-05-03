@@ -2,10 +2,10 @@ import path from "path";
 import express from "express";
 import favicon from "serve-favicon";
 import gracefulShutdown from "http-graceful-shutdown";
-import exitOptions from "@config/exitOptions";
-import Logger from "@config/logOptions";
 import config from "@config";
 import loaders from "@loaders";
+import Logger from "@services/logger";
+import exitOptions from "@config/exitOptions";
 
 const { env, port } = config;
 const serverActiveMsg = `Server running in ${env} mode on port ${port}`;

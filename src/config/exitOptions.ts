@@ -1,5 +1,5 @@
 import GracefulShutdown from "http-graceful-shutdown";
-import Logger from "@config/logOptions";
+import Logger from "@services/logger";
 import config from "@config";
 
 // @@todo: Look further into handling shutdowns once error logging has been setup

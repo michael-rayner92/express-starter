@@ -30,8 +30,8 @@ const startServer = async () => {
       process.exit(1);
     });
 
+  // Application specific logging, throwing an error, or other logic here
   process.on("unhandledRejection", (reason, promise) => {
-    // Application specific logging, throwing an error, or other logic here
     Logger.error("Unhandled Rejection at:", promise, "reason:", reason);
     process.exit(1);
   });

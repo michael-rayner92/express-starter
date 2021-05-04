@@ -17,8 +17,7 @@
     "vscode-icons-team.vscode-icons",
     "skyran.js-jsx-snippets",
     "redhat.vscode-yaml",
-    "editorconfig.editorconfig",
-    "streetsidesoftware.code-spell-checker"
+    "editorconfig.editorconfig"
   ],
   "unwantedRecommendations": []
 }

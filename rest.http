@@ -1,0 +1,19 @@
+
+@AUTH_TOKEN = Bearer xxxxxxx.xxxx
+@BASE_URL = https://localhost:5000
+
+GET {{BASE_URL}}
+###
+GET {{BASE_URL}}/throw
+###
+GET {{BASE_URL}}/error
+###
+GET {{BASE_URL}}/async
+###
+POST {{BASE_URL}}/login
+Content-Type: application/json
+
+{
+  "email": "john@example.com",
+  "password": "supersecret1"
+}

@@ -59,7 +59,7 @@ export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
   const statusCode = res.statusCode === 200 ? 500 : res.statusCode;
 
   if (!handled || !error.message) {
-    const message = error.message || "Internal Server Error";
+    const message = error.message ?? "Internal Server Error";
 
     error = new ErrorResponse(message, statusCode, metadata);
     error.message = getTranslation(req, message, "errors:err500");

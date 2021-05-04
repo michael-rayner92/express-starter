@@ -1,12 +1,4 @@
-import { TOptions } from "i18next";
-import { Request } from "express";
-
-type GetTranslation = (
-  req: Request,
-  fb: string,
-  key: string,
-  options?: string | TOptions
-) => string;
+import { GetTranslation } from "./types";
 
 export const getTranslation: GetTranslation = (req, fallback, key, options) => {
   const translation = req.t(key, options);

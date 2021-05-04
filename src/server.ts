@@ -1,4 +1,5 @@
-import path from "path";
+import fs from "fs";
+import https from "https";
 import express from "express";
 import favicon from "serve-favicon";
 import gracefulShutdown from "http-graceful-shutdown";
@@ -7,23 +8,25 @@ import loaders from "@loaders";
 import Logger from "@services/logger";
 import exitOptions from "@config/exitOptions";
 
-const { env, port } = config;
+const { isDev, env, port } = config;
 const serverActiveMsg = `Server running in ${env} mode on port ${port}`;
+
+const sslCredentials = {
+  key: isDev ? fs.readFileSync("certs/key.pem") : "",
+  cert: isDev ? fs.readFileSync("certs/cert.pem") : ""
+};
 
 const startServer = async () => {
   const app: express.Application = express();
 
-  app.use(favicon(path.join(__dirname, "../public", "favicon.ico")));
-  // app.use(express.static(path.join(__dirname, "../public")));
+  app.use(favicon("public/favicon.ico"));
+  app.use(express.static("public"));
 
   loaders(app);
-  // Add if asynchronous
-  // try {
-  // } catch (err) {
-  // Logger.error("Failed to load express server");
-  // }
 
-  app
+  const server = isDev ? https.createServer(sslCredentials, app) : app;
+
+  server
     .listen(port, () => Logger.info(serverActiveMsg))
     .on("error", err => {
       Logger.error(`Server failed with ${err}`);
@@ -36,7 +39,7 @@ const startServer = async () => {
     process.exit(1);
   });
 
-  gracefulShutdown(app, exitOptions);
+  gracefulShutdown(server, exitOptions);
 };
 
 startServer();

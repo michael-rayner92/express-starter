@@ -10,12 +10,11 @@ import loadErrorHandlers from "@loaders/loadErrorHandlers";
 
 const startServer = (app: express.Application): void => {
   loadHealthChecks(app);
+  loadLogger(app);
+  loadi18n(app);
 
   loadSentry(app);
   loadSecurity(app);
-
-  loadLogger(app);
-  loadi18n(app);
 
   loadRoutes(app);
   loadScheduler();

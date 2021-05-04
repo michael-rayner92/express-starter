@@ -1,6 +1,9 @@
 # Project
 build
 
+# Certificates
+certs
+
 # Dotenv
 .env*
 !.env*.example

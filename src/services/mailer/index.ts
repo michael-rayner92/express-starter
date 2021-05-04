@@ -15,7 +15,10 @@ const getMessage = (emailParams: IEmailParams) => {
 
   return {
     to: sendTo,
-    from: sendgrid.email,
+    from: {
+      name: sendgrid.user,
+      email: sendgrid.email
+    },
     subject: `${type} email with Node.js and SendGrid`,
     text: body,
     html: `<strong>${body}</strong>`

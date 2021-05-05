@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
-import Logger from "@services/logger";
-import sendEmail from "@services/mailer";
-import ErrorResponse from "@utils/errorResponse";
+import Logger from "@utils/logger";
+import sendEmail from "@utils/mailer";
+import ErrorResponse from "@helpers/errorResponse";
 import asyncHandler from "@middleware/asyncHandler";
 
 // Test Logs

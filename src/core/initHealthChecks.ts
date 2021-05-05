@@ -1,7 +1,7 @@
 import express from "express";
 import config from "@config";
 
-const healthCheckLoader = (app: express.Application): void => {
+const initHealthChecks = (app: express.Application): void => {
   app.get("/status", (req, res) => res.status(200).end());
   app.head("/status", (req, res) => res.status(200).end());
 
@@ -12,4 +12,4 @@ const healthCheckLoader = (app: express.Application): void => {
   // @@Todos /metrics, /debug, /health
 };
 
-export default healthCheckLoader;
+export default initHealthChecks;

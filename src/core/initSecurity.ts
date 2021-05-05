@@ -13,7 +13,7 @@ import config from "@config";
 
 const { isDev } = config;
 
-const securityLoader = (app: express.Application): void => {
+const initSecurity = (app: express.Application): void => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
 
@@ -35,4 +35,4 @@ const securityLoader = (app: express.Application): void => {
   app.use(cors(corsOptions));
 };
 
-export default securityLoader;
+export default initSecurity;

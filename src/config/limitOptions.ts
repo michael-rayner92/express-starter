@@ -1,5 +1,5 @@
 import { Options } from "express-rate-limit";
-import ErrorResponse from "@utils/errorResponse";
+import ErrorResponse from "@helpers/errorResponse";
 
 const limitReached = (): void => {
   throw new ErrorResponse("Too many requests, please try again laterz.", 429);

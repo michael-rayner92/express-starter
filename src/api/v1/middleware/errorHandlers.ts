@@ -1,6 +1,6 @@
 import { ErrorRequestHandler, RequestHandler } from "express";
-import { getTranslation } from "@services/i18n";
-import ErrorResponse from "@utils/errorResponse";
+import { getTranslation } from "@utils/i18n";
+import ErrorResponse from "@helpers/errorResponse";
 import config from "@config";
 
 export const notFound: RequestHandler = (req, res, next) => {

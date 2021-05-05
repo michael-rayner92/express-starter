@@ -1,11 +1,11 @@
 import schedule from "node-schedule";
-import Logger from "@services/logger";
+import Logger from "@utils/logger";
 
 const dailySnapshot = () => {
   Logger.verbose("Creating daily snapshot");
 };
 
-const loadSchedules = (): void => {
+const initScheduler = (): void => {
   // Run Hourly Tasks
   schedule.scheduleJob("0 * * * *", () => {
     Logger.info("Running Hourly Tasks");
@@ -23,6 +23,6 @@ const loadSchedules = (): void => {
   });
 };
 
-export default loadSchedules;
+export default initScheduler;
 
 // @@Resource https://www.npmjs.com/package/node-schedule

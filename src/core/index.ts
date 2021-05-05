@@ -1,9 +1,10 @@
 import express from "express";
 import initi18n from "@core/initi18n";
+import initRedis from "@core/initRedis";
 import initLogger from "@core/initLogger";
 import initRoutes from "@core/initRoutes";
 import initSentry from "@core/initSentry";
-import initSecurity from "@core/initSecurity";
+import initHeaders from "@core/initHeaders";
 import initScheduler from "@core/initScheduler";
 import initHealthChecks from "@core/initHealthChecks";
 import initErrorHandlers from "@core/initErrorHandlers";
@@ -14,7 +15,8 @@ const startServer = (app: express.Application): void => {
   initi18n(app);
 
   initSentry(app);
-  initSecurity(app);
+  initHeaders(app);
+  initRedis(app);
 
   initRoutes(app);
   initScheduler();

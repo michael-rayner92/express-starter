@@ -3,6 +3,7 @@ import cors from "cors";
 import helmet from "helmet";
 import express from "express";
 import compression from "compression";
+import responseTime from "response-time";
 import rateLimiter from "express-rate-limit";
 import mongoSanitize from "express-mongo-sanitize";
 import methodOverride from "method-override";
@@ -13,7 +14,7 @@ import config from "@config";
 
 const { isDev } = config;
 
-const initSecurity = (app: express.Application): void => {
+const initHeaders = (app: express.Application): void => {
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
 
@@ -23,6 +24,7 @@ const initSecurity = (app: express.Application): void => {
   app.use(helmet({ contentSecurityPolicy: false }));
   app.disable("x-powered-by");
   app.disable("etag");
+  app.use(responseTime());
 
   if (!isDev) {
     app.use(compression());
@@ -35,4 +37,4 @@ const initSecurity = (app: express.Application): void => {
   app.use(cors(corsOptions));
 };
 
-export default initSecurity;
+export default initHeaders;

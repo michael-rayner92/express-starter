@@ -9,7 +9,7 @@ const { dsn, environment, release } = sentry;
 const initSentry = (app: express.Application): void => {
   Sentry.init({
     dsn,
-    debug: isDev,
+    // debug: isDev,
     release,
     environment,
     integrations: [

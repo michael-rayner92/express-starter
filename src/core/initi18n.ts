@@ -6,7 +6,7 @@ import config from "@config";
 
 const localesDir = "src/api/v1/locales";
 
-const i18nLoader = (app: express.Application): void => {
+const initi18n = (app: express.Application): void => {
   i18next
     .use(Backend)
     .use(i18nextMiddleware.LanguageDetector)
@@ -31,4 +31,4 @@ const i18nLoader = (app: express.Application): void => {
   app.use(i18nextMiddleware.handle(i18next, { ignoreRoutes: [] }));
 };
 
-export default i18nLoader;
+export default initi18n;

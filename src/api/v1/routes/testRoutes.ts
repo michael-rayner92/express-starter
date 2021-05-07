@@ -4,7 +4,8 @@ import {
   testSendEmail,
   testAsyncRoute,
   testErrorRoute,
-  testThrowRoute
+  testThrowRoute,
+  testRedisRoute
 } from "@controllers/testController";
 
 const router: Router = Router();
@@ -17,6 +18,7 @@ const testRoutes = (app: Router): void => {
   router.get("/error", testErrorRoute);
   router.get("/throw", testThrowRoute);
   router.get("/send-email", testSendEmail);
+  router.get("/redis/:key", testRedisRoute);
 };
 
 export default testRoutes;

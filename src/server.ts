@@ -4,8 +4,8 @@ import express from "express";
 import favicon from "serve-favicon";
 import gracefulShutdown from "http-graceful-shutdown";
 import config from "@config";
-import loaders from "@loaders";
-import Logger from "@services/logger";
+import initServer from "@core";
+import Logger from "@utils/logger";
 import exitOptions from "@config/exitOptions";
 
 const { isDev, env, port } = config;
@@ -17,12 +17,12 @@ const sslCredentials = {
 };
 
 const startServer = async () => {
-  const app: express.Application = express();
+  const app: express.Express = express();
 
   app.use(favicon("public/favicon.ico"));
   app.use(express.static("public"));
 
-  loaders(app);
+  initServer(app);
 
   const server = isDev ? https.createServer(sslCredentials, app) : app;
 

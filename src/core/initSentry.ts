@@ -6,10 +6,10 @@ import config from "@config";
 const { isDev, sentry } = config;
 const { dsn, environment, release } = sentry;
 
-const sentryLoader = (app: express.Application): void => {
+const initSentry = (app: express.Application): void => {
   Sentry.init({
     dsn,
-    debug: isDev,
+    // debug: isDev,
     release,
     environment,
     integrations: [
@@ -29,4 +29,4 @@ const sentryLoader = (app: express.Application): void => {
   // });
 };
 
-export default sentryLoader;
+export default initSentry;

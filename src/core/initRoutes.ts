@@ -1,8 +1,8 @@
 import express from "express";
 import testRoutes from "@routes/testRoutes";
 
-const routesLoader = (app: express.Application): void => {
+const initRoutes = (app: express.Application): void => {
   testRoutes(app);
 };
 
-export default routesLoader;
+export default initRoutes;

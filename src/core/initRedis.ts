@@ -1,43 +1,19 @@
-import { promisify } from "util";
-import express from "express";
-import redis from "redis";
+import Redis from "ioredis";
+import config from "@config";
 import Logger from "@utils/logger";
 
-const redisUrl = "redis://127.0.0.1:6379";
+const ONE_MINUTE = 60 * 1000;
+const INTERVAL_VALUE = 4 * ONE_MINUTE;
+const { host, port, password } = config.redis;
 
-const clearCache = (client: redis.RedisClient) => {
-  client.flushall();
-  Logger.info("Redis Cache Flushed");
-};
+const redis = new Redis({ host, port, password });
 
-const initRedis = (app: express.Application): void => {
-  const client = redis.createClient(redisUrl);
+redis.on("connect", () => Logger.info(`🛢 Redis is running on port ${port}`));
+redis.on("error", err => Logger.error(err));
 
-  client.on("error", err => Logger.error(err));
+setInterval(() => {
+  Logger.debug("Keeping alive - Node.js Performance Test with Redis");
+  redis.set("ping", "pong");
+}, INTERVAL_VALUE);
 
-  const GET_ASYNC = promisify(client.get).bind(client);
-  const SET_ASYNC = promisify(client.set).bind(client);
-
-  // Clear entire cache
-  // clearCache(client);
-};
-
-export default initRedis;
-
-/**
- * Example use
-  app.get("/rockets", async (req, res, next) => {
-    const reply = await GET_ASYNC("rockets");
-    if (reply) {
-      console.log("Using cached data");
-      res.send(JSON.parse(reply));
-      return;
-    }
-
-    const response = await axios.get("https://api.spacexdata.com/v3/rockets");
-
-    const saveResult = await SET_ASYNC("rockets", JSON.stringify(response.data), "EX", 5);
-
-    console.log("New data cached", saveResult);
-  });
- */
+export default { getClient: (): Redis.Redis => redis };

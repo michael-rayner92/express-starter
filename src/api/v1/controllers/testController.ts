@@ -3,6 +3,7 @@ import Logger from "@utils/logger";
 import sendEmail from "@utils/mailer";
 import ErrorResponse from "@helpers/errorResponse";
 import asyncHandler from "@middleware/asyncHandler";
+import redisClient from "@utils/cache";
 
 // Test Logs
 const LOGGER_DEMO = true;
@@ -66,4 +67,14 @@ export const testSendEmail = asyncHandler(async (req, res) => {
 
   Logger.silly("Email Should Have Sent!");
   res.status(200).json({ success: true, message: "Email Sent!" });
+});
+
+export const testRedisRoute = asyncHandler(async (req, res) => {
+  const cacheValue = await redisClient.useCache(req.params.key);
+
+  if (cacheValue) Logger.debug(cacheValue);
+  else Logger.debug("No cached value found");
+
+  const message = cacheValue ? "Cache value found" : "Cache value not found";
+  res.status(200).json({ success: true, message });
 });

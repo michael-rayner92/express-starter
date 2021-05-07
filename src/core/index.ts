@@ -16,7 +16,8 @@ const startServer = (app: express.Application): void => {
 
   initSentry(app);
   initHeaders(app);
-  initRedis(app);
+
+  initRedis.getClient();
 
   initRoutes(app);
   initScheduler();

@@ -17,3 +17,7 @@ Content-Type: application/json
   "email": "john@example.com",
   "password": "supersecret1"
 }
+
+###
+GET {{BASE_URL}}/redis/testKey
+###

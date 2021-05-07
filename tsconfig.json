@@ -20,6 +20,7 @@
     "rootDir": "src",
     "outDir": "build",
     "module": "commonjs",
+    "skipLibCheck": true,
     "moduleResolution": "node",
     "tsBuildInfoFile": "build/tsconfig.tsbuildinfo",
     "paths": {

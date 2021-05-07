@@ -31,9 +31,8 @@ export default {
     password: process.env.MONGO_PASSWORD ?? ""
   },
   redis: {
-    host: process.env.REDIS_HOST ?? "127.0.0.1",
-    port: parseInt(process.env.REDIS_PORT ?? "6379"),
-    password: process.env.REDIS_PASSWORD ?? ""
+    url: process.env.REDIS_URL ?? "rediss://127.0.0.1:6379",
+    port: parseInt(process.env.REDIS_PORT ?? "6379")
   },
   domains: {
     api: process.env.API_URL,

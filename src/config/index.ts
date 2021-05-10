@@ -19,6 +19,7 @@ export default {
   name,
   version,
   port: parseInt(process.env.PORT ?? "5000", 10),
+  webConcurrency: parseInt(process.env.WEB_CONCURRENCY ?? "1", 10),
   redisUrl: process.env.REDIS_URL ?? "rediss://127.0.0.1:6379",
   isDev: env === "development",
   isProd: env === "production",

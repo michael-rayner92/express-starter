@@ -76,6 +76,7 @@
     "redis": "^3.1.2",
     "response-time": "^2.3.2",
     "serve-favicon": "^2.5.0",
+    "throng": "^5.0.0",
     "winston": "^3.3.3",
     "winston-mongodb": "^5.0.7"
   },
@@ -96,6 +97,7 @@
     "@types/redis": "^2.8.28",
     "@types/response-time": "^2.3.4",
     "@types/serve-favicon": "^2.5.2",
+    "@types/throng": "^5.0.0",
     "@typescript-eslint/eslint-plugin": "^4.21.0",
     "@typescript-eslint/parser": "^4.21.0",
     "eslint": "^7.23.0",

@@ -4,7 +4,7 @@ import redisClient from "@utils/cache";
 import Logger from "@utils/logger";
 import config from "@config";
 
-const TIMEOUT_VALUE = 1500;
+const TIMEOUT_VALUE = 5000;
 
 let mongoClientExited = false;
 let redisClientExited = false;

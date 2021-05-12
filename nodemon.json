@@ -6,6 +6,7 @@
     ".git",
     "logs",
     "build",
+    "NOTES.md",
     "node_modules",
     "src/seeder.ts",
     "src/api/v1/locales/*"

@@ -1,4 +1,4 @@
-import { Router } from "express";
+import { Application, Router } from "express";
 import {
   testRoute,
   testSendEmail,
@@ -8,9 +8,9 @@ import {
   testRedisRoute
 } from "@controllers/testController";
 
-const router: Router = Router();
+const router = Router();
 
-const testRoutes = (app: Router): void => {
+const testRoutes = (app: Application): void => {
   app.use("/", router);
 
   router.get("/", testRoute);

@@ -30,3 +30,15 @@
 ```
 *Don't seem to be needed with current build and nodemon setup*
 
+## TODO List
+[] - Finish Team DB Setup
+[] - Create and Delete Tenant Routes
+**Then?**
+[] - Create DB Helpers
+[] - Finish Strategy Implementation
+[] - Cache DBs with Redis with Hydration
+[] - Scheduled BD Backups
+[] - Production DB Setup
+
+**Later**
+[] - Fix Error Message Duplication (Move Logging into Error Handler)

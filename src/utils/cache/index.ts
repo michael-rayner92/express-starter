@@ -15,6 +15,8 @@ const checkCache = async (key: string): Promise<boolean> => {
     Logger.warn("No cached value stored: ");
     return false;
   }
+
+  return false;
 };
 
 const useCache = async (key: string): Promise<string | null> => {

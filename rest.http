@@ -24,3 +24,16 @@ Content-Type: application/json
 ###
 GET {{BASE_URL}}/redis/testKey
 ###
+
+GET {{BASE_URL}}/team/tenants
+###
+POST {{BASE_URL}}/team/tenants
+Content-Type: application/json
+
+{
+  "name": "Test Tenant 5",
+  "dbName": "t-tenant5"
+}
+###
+DELETE {{BASE_URL}}/team/tenants/t-tenant4
+###

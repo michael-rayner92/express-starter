@@ -4,9 +4,10 @@
   "watch": ["src", ".env"],
   "ignore": [
     ".git",
-    "logs",
-    "build",
-    "node_modules",
+    "logs/",
+    "build/",
+    "NOTES.md",
+    "node_modules/",
     "src/seeder.ts",
     "src/api/v1/locales/*"
   ],

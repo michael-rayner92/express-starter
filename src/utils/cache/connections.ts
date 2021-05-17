@@ -12,6 +12,7 @@ export const closeCache = async (): Promise<boolean> => {
     Logger.error(`Redis failed to gracefylly quit`, err);
     return false;
   }
+  return false;
 };
 
 export const forceExit = (): void => {

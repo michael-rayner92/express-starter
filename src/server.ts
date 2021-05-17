@@ -5,6 +5,7 @@ import express from "express";
 import favicon from "serve-favicon";
 import gracefulShutdown from "http-graceful-shutdown";
 import exitOptions from "@config/exitOptions";
+import { connectDBs } from "@utils/db";
 import initMiddleware from "@core";
 import Logger from "@utils/logger";
 import config from "@config";
@@ -27,9 +28,13 @@ const startServer = async (): Promise<void> => {
   const server = isDev ? https.createServer(sslCredentials, app) : app;
   initMiddleware(app);
 
-  server.listen(port, () => {
+  server.listen(port, async () => {
     Logger.info(serverActiveMsg);
     Logger.info(workerActiveMsg);
+
+    await connectDBs();
+    // connectRedis.getClient();    // ? MAYBE??
+    // Maybe initScheduler here as well
   });
 
   server.on("error", err => {

@@ -41,5 +41,22 @@
     "sendgrid",
     "tsbuildinfo",
     "tscpaths"
-  ]
+  ],
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#a3cdea",
+    "activityBar.activeBorder": "#d6499c",
+    "activityBar.background": "#a3cdea",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#d6499c",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "statusBar.background": "#7ab6e0",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#519fd6",
+    "titleBar.activeBackground": "#7ab6e0",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#7ab6e099",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#7ab6e0"
 }

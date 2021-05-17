@@ -25,15 +25,16 @@ const startServer = async (): Promise<void> => {
   app.use(favicon("public/favicon.ico"));
   app.use(express.static("public"));
 
-  await connectDBs();
-  // connectRedis.getClient();    // ? MAYBE??
-
   const server = isDev ? https.createServer(sslCredentials, app) : app;
   initMiddleware(app);
 
-  server.listen(port, () => {
+  server.listen(port, async () => {
     Logger.info(serverActiveMsg);
     Logger.info(workerActiveMsg);
+
+    await connectDBs();
+    // connectRedis.getClient();    // ? MAYBE??
+    // Maybe initScheduler here as well
   });
 
   server.on("error", err => {

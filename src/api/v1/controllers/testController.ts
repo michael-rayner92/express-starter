@@ -10,6 +10,13 @@ const LOGGER_DEMO = true;
 const LOCALES_DEMO = true;
 const LOGS = false;
 
+/**
+ * @async
+ * @route GET /api/v1/test
+ * @access Public
+ * @category Test Routes
+ * @description Test Logging and Internationalisation
+ */
 export const testRoute = asyncHandler(async (req, res) => {
   if (LOGS && LOGGER_DEMO) {
     Logger.error("This is an error log", { env: "development" });
@@ -44,20 +51,47 @@ export const testRoute = asyncHandler(async (req, res) => {
   res.status(200).send({ message: "Success" });
 });
 
+/**
+ * @async
+ * @route GET /api/v1/test/async
+ * @access Public
+ * @category Test Routes
+ * @description Throw an asynchronous error
+ */
 export const testAsyncRoute = asyncHandler(async (req, res) => {
   throw new Error("You broke me asynchronously!!!!");
 });
 
+/**
+ * @route GET /api/v1/test/error
+ * @access Public
+ * @category Test Routes
+ * @description Throw a synchronous error
+ */
 export const testErrorRoute: RequestHandler = (req, res) => {
   throw new Error("You broke me!!!!");
 };
 
+/**
+ * @async
+ * @route GET /api/v1/test/throw
+ * @access Public
+ * @category Test Routes
+ * @description Throw a generic error
+ */
 export const testThrowRoute: RequestHandler = asyncHandler(
   async (req, res, next) => {
     return next(new ErrorResponse("Throw generic error", 500));
   }
 );
 
+/**
+ * @async
+ * @route GET /api/v1/test/send-email
+ * @access Public
+ * @category Test Routes
+ * @description Send an email to a hard coded email address
+ */
 export const testSendEmail = asyncHandler(async (req, res) => {
   await sendEmail({
     sendTo: "example@example.com",
@@ -69,6 +103,13 @@ export const testSendEmail = asyncHandler(async (req, res) => {
   res.status(200).json({ success: true, message: "Email Sent!" });
 });
 
+/**
+ * @async
+ * @route GET /api/v1/test/redis/:key
+ * @access Public
+ * @category Test Routes
+ * @description Test redis cache functionality
+ */
 export const testRedisRoute = asyncHandler(async (req, res) => {
   const cacheValue = await redisClient.useCache(req.params.key);
 

@@ -4,6 +4,9 @@ build
 # Certificates
 certs
 
+# Docs
+docs
+
 # Dotenv
 .env*
 !.env*.example

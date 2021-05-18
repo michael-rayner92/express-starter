@@ -17,6 +17,13 @@ export const getAllTenants: RequestHandler = asyncHandler(async (req, res) => {
   return res.json({ success: true, data, message: "Team DB Fetched" });
 });
 
+/**
+ * @async
+ * @route POST /api/v1/team
+ * @access Private
+ * @category Team Routes
+ * @description Create a new tenant
+ */
 export const createTenant: RequestHandler = asyncHandler(
   async (req, res, next) => {
     const Tenant = getTeamModel("Tenant");
@@ -45,6 +52,13 @@ export const createTenant: RequestHandler = asyncHandler(
 );
 
 // @@TODO replace dbName with _id/id
+/**
+ * @async
+ * @route DELETE /api/v1/team/:id
+ * @access Private
+ * @category Team Routes
+ * @description Delete a tenant by id
+ */
 export const deleteTenant: RequestHandler = asyncHandler(
   async (req, res, next) => {
     // Check ID is of the correct type

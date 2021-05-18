@@ -1,8 +1,4 @@
 {
-  "[typescript]": {
-    "editor.formatOnPaste": false,
-    "editor.formatOnSave": true
-  },
   "editor.formatOnSave": true,
   "editor.insertSpaces": true,
   "editor.detectIndentation": false,
@@ -34,13 +30,6 @@
     "authentication",
     "enhancement",
     "new feature"
-  ],
-  "cSpell.ignoreWords": [
-    "loadi",
-    "n",
-    "sendgrid",
-    "tsbuildinfo",
-    "tscpaths"
   ],
   "workbench.colorCustomizations": {
     "activityBar.activeBackground": "#a3cdea",

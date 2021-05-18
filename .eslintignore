@@ -1,6 +1,7 @@
 node_modules
 build
 tests
+docs
 
 package.json
 package-lock.json

@@ -14,10 +14,9 @@ const limitOptions: Options = {
 
 export default limitOptions;
 
-/** NOTES:
- * NPM package used: express-rate-limiter
- * @@Enhancement Add redis caching to use across load balancer setup
- * @@Resource https://www.npmjs.com/package/express-rate-limit
- * @@Enhancement Adding express-slow-down for specific routes
- * @@Resource https://www.npmjs.com/package/express-slow-down
- */
+// NOTES:
+// NPM package used: express-rate-limiter
+// @@Enhancement Add redis caching to use across load balancer setup
+// @@Resource https://www.npmjs.com/package/express-rate-limit
+// @@Enhancement Adding express-slow-down for specific routes
+// @@Resource https://www.npmjs.com/package/express-slow-down
